@@ -1,0 +1,27 @@
+.header {
+    background-color: white;
+    padding: 2px;
+    border: 1px solid lightgrey;
+    display: flex;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .logo{
+     object-fit: contain;
+     height: 60px;
+    
+  }
+  
+  .Icons {
+      display: flex;
+      align-items: center;
+  }
+  
+  .Icon {
+      margin-right: 15PX;
+      cursor: pointer;
+  }
+  

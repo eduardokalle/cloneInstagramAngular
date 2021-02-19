@@ -1,0 +1,9 @@
+.post{
+    display: flex;
+    justify-content: space-between;
+}
+.addPost{
+    
+    display: flex;
+    justify-content: space-between;
+}
