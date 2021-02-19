@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog"
 import { AddPostComponent } from '../../view/add-post/add-post.component'
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -10,7 +12,8 @@ import { AddPostComponent } from '../../view/add-post/add-post.component'
 export class HeaderComponent implements OnInit {
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public router: Router 
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +32,11 @@ export class HeaderComponent implements OnInit {
       if (result) {
       }
     })
+  }
+
+  onlogout() {
+    localStorage.removeItem('user');
+    this.router.navigate([""])
   }
 
 }

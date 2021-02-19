@@ -4,7 +4,7 @@ export const GlobalVariable = Object.freeze({
     BASE_API_URL: 'https://gorest.co.in/public-api/',
   
     //USER
-    USER_AUTH: "login",
+    USER: "users",
   
     //POST
     POST_READ_ALL: "posts",
