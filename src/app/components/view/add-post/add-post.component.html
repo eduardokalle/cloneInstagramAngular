@@ -1,17 +1,20 @@
-<h1 mat-dialog-title>Send your post</h1>
-<div mat-dialog-content>
-  <mat-form-field>
-    <mat-label>Title</mat-label>
-    <input matInput>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Menssage</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field>
+<div class="addPost">
+  <h1 mat-dialog-title>Send your post</h1>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input matInput #title>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Menssage</mat-label>
+      <textarea matInput #body></textarea>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)=onNoClick()>Cancel</button>
+    <button mat-button (click)="senPodtnew(title.value , body.value)">Send</button>
+  </div>
 </div>
-<div mat-dialog-actions>
-  <button mat-button >Cancel</button>
-  <button mat-button>Send</button>
-</div>
+
 
 
