@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { PostService } from 'src/app/service/post.service'; 
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-post',
@@ -8,12 +9,32 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 })
 export class AddPostComponent implements OnInit {
 
+  message
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public postService: PostService,
+    public dialogRef: MatDialogRef<AddPostComponent>
   ) { }
 
   ngOnInit(): void {
   }
+  
+  onNoClick(): void {
+    this.dialogRef.close()
+  }
 
-
+  senPodtnew(title:string, body:string){
+    this.postService.sendPost({title , body}).subscribe(
+      p => {
+        this.message = p.result
+        console.log('p =',p);
+      },
+      e => { console.log(e) },
+      () => {
+         console.log('post send == ', this.message );
+         
+      }
+    )
+  }
+  
 }

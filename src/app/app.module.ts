@@ -22,9 +22,11 @@ import { MatInputModule} from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 
 import {AngularFireModule} from '@angular/fire'
+//import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { MatDialogRef , MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { FirebaseService } from './service/firebase.service';
+import { MypostComponent } from './components/view/mypost/mypost.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { FirebaseService } from './service/firebase.service';
     HeaderComponent,
     PostComponent,
     AddPostComponent,
+    MypostComponent,
     
   ],
   entryComponents: [AddPostComponent],
@@ -48,17 +51,19 @@ import { FirebaseService } from './service/firebase.service';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
+    //AngularFireAuthModule,
     MatButtonModule,
+    AngularFireModule,
     AngularFireModule.initializeApp({
-      apiKey: "AIzaSyCjLvlfAi47-tDMeXCbusFRjanGU1xpnTQ",
-      authDomain: "cloneinstagramangular.firebaseapp.com",
-      projectId: "cloneinstagramangular",
-      storageBucket: "cloneinstagramangular.appspot.com",
-      messagingSenderId: "1049027038150",
-      appId: "1:1049027038150:web:531908ff429077819780c7"
+      apiKey: "AIzaSyCttZmJh_ArFeLbhU4RQNzxFl_93HHYn6o",
+      authDomain: "cloneinstagram-ac725.firebaseapp.com",
+      projectId: "cloneinstagram-ac725",
+      storageBucket: "cloneinstagram-ac725.appspot.com",
+      messagingSenderId: "884564723659",
+      appId: "1:884564723659:web:2e86deeac02755c3a9184e"
     })  
   ],
-  providers: [FirebaseService, AuthGuard,
+  providers: [FirebaseService,
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MatDialogRef, useValue: {} }
   ],

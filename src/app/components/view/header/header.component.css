@@ -23,5 +23,9 @@
   .Icon {
       margin-right: 15PX;
       cursor: pointer;
+      align-items: center
   }
   
+  .mat-dialog-container{
+    padding-left: 50%;
+  }

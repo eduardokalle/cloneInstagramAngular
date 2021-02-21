@@ -1,15 +1,12 @@
-<h2>News post</h2>
-    <div *ngFor="let post of postall">
+<h2>My post</h2>
+    <div *ngFor="let post of mypost">
         <mat-card class="example-card">
             <mat-card-header>
-                <img mat-card-avatar class="example-header-image" src={{post.image}}>
+                <div mat-card-avatar class="example-header-image"></div>
                     <mat-card-title>{{post.user_id}}</mat-card-title>
                     <mat-card-subtitle>{{post.title}}</mat-card-subtitle>
                     </mat-card-header>
-                    <!--<div *ngFor="let image of images ">
-                    <img mat-card-image src={{image}} alt="image post">
-                    </div>-->
-                    <img mat-card-image src={{post.image}} alt="image post">
+                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
                     <mat-card-content>
                         <p>
                             {{post.body}}
@@ -20,7 +17,7 @@
                 <mat-icon>favorite</mat-icon>
             </button>
             <button mat-button class="Icon">
-                <mat-icon>send</mat-icon>   
+                <mat-icon>send</mat-icon>
             </button> 
             
             </mat-card-actions>
@@ -31,7 +28,7 @@
                         comments
                     </mat-panel-title>
                   </mat-expansion-panel-header>
-                  <div *ngFor="let comment of commentsall">
+                  <div *ngFor="let comment of mypostcomments">
                     <div *ngIf="post.id == comment.post_id">
                         <h4 style="font-weight: bold">{{comment.name}}</h4>
                         <h5>{{comment.body}}</h5>
@@ -41,3 +38,4 @@
             </mat-accordion>   
         </mat-card>
     </div>
+

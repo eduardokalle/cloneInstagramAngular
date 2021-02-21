@@ -1,12 +1,12 @@
 <div class="header">
     <img alt="SocialNetwork" class="logo" src="https://i.ibb.co/dj0XdMN/logo.png" >
     <div class="Icons">
-        <div class="Icon">
-            <mat-icon>home</mat-icon>
-        </div>
-        <div class="Icon">
-            <mat-icon>send</mat-icon>
-        </div>
+        <button class="Icon" (click)="post()">
+        News Post     <mat-icon>home</mat-icon>
+        </button>
+        <button class="Icon" (click)="mypost()">
+        My Post   <mat-icon>send</mat-icon>
+        </button>
         <div class="Icon">
             <mat-icon>explore</mat-icon>
         </div>
@@ -14,10 +14,10 @@
             <mat-icon>favorite_border</mat-icon>
         </div>
         <button class="Icon" (click)="createPost()">
-            <mat-icon>add_circle_outline</mat-icon>
+         Create Post   <mat-icon>add_circle_outline</mat-icon>
         </button>
         <button class="Icon" (click)="onlogout()">
-            <mat-icon>power_settings_new</mat-icon>
+        Close     <mat-icon>power_settings_new</mat-icon>
         </button>
     </div>
   </div>

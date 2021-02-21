@@ -12,7 +12,6 @@ import { FirebaseService } from '../../service/firebase.service';
 })
 export class LoginComponent implements OnInit {
  
-  title = 'firebase-angular-auth';
   isSignedIn = false
   constructor(
     public firebaseService : FirebaseService,
@@ -25,10 +24,11 @@ export class LoginComponent implements OnInit {
     this.isSignedIn = false
   }
   async onSignin(email:string,password:string){
+    debugger
     await this.firebaseService.singin(email,password)
-    if(this.firebaseService.isLoggedIn)
-    this.isSignedIn = true
-    this.router.navigate(["/home"])
+    //if(this.firebaseService.isLoggedIn)
+   //this.isSignedIn = true
+    // this.router.navigate(["/post"])
   }
   handleLogout(){
     this.isSignedIn = false

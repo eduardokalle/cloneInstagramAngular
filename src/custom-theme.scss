@@ -33,3 +33,6 @@ $cloneinstagramA-theme: mat-light-theme((
 // that you are using.
 @include angular-material-theme($cloneinstagramA-theme);
 
+.mat-dialog-container{
+  margin-left: 30%;
+}
