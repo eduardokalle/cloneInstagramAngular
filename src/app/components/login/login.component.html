@@ -2,23 +2,23 @@
     <mat-card-title>
       <img alt="SocialNetwork" class="logo" src="https://i.ibb.co/dj0XdMN/logo.png" >
     </mat-card-title>
-    <mat-card-title>Login</mat-card-title>
+    <br/>  
+    <br/>
+    <mat-card-title style="text-align-last: center;">Login</mat-card-title>
 <mat-card-content>
-<form>
-<p>
+
   <mat-form-field>
     <input matInput type="mail" #email required=true placeholder="Username">
   </mat-form-field>
-</p>  
-<p>
+   <br/>  
+   <br/>  
   <mat-form-field>         
     <input matInput type="password" #password required=true  placeholder="Password">
   </mat-form-field> 
-</p>
+
   <div class="button">
     <button  mat-button  (click)="onSignin(email.value , password.value)">Sign in</button>
   </div>
-</form>
 </mat-card-content>
 </mat-card>
 

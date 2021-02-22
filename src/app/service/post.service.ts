@@ -25,7 +25,8 @@ export class PostService {
 
     const headers = this.getHeaders();
     //const idUse = getIdUser();
-    return this.http.post("https://gorest.co.in/public-api/users/1392/posts", submission, {headers});
+    //return this.http.post(`https://gorest.co.in/public-api/users/${this.id}/posts`, submission, {headers});
+    return this.http.post(builGETTUrl(GlobalVariable.POST_SEND), submission, {headers});
   }
 
   myPost(submission: any): Observable<any> {
@@ -33,7 +34,6 @@ export class PostService {
     return this.http.get(builGETTUrl(GlobalVariable.POST_MY),
     )
   }
-
 
   postImages(submission: any): Observable<any> {
 
@@ -51,18 +51,11 @@ export class PostService {
 
 }
 
-function builGETTUrlSendPost(type: string): string {
-  let finalUrl = GlobalVariable.BASE_API_URL 
-  finalUrl += type
-  return finalUrl
-}
-
 function builGETTUrl(type: string): string {
   let finalUrl = GlobalVariable.BASE_API_URL
   finalUrl += type
   return finalUrl
 }
-
 
 function builGETTUrlimages(type: string): string {
   let finalUrl = GlobalVariable.BASE_API_URL_IMAGES

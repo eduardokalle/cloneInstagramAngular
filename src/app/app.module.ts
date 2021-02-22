@@ -20,13 +20,27 @@ import { MatDialogModule } from "@angular/material/dialog"
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule} from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
-import {AngularFireModule} from '@angular/fire'
-//import { AngularFireAuthModule } from '@angular/fire/auth';
+
+import firebase from 'firebase'; 
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { MatDialogRef , MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { FirebaseService } from './service/firebase.service';
 import { MypostComponent } from './components/view/mypost/mypost.component';
+
+const config = {
+  apiKey: "AIzaSyCjLvlfAi47-tDMeXCbusFRjanGU1xpnTQ",
+  authDomain: "cloneinstagramangular.firebaseapp.com",
+  databaseURL:"cloneinstagramangular.firebaseapp.com",
+  projectId: "cloneinstagramangular",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
+}
 
 @NgModule({
   declarations: [
@@ -37,6 +51,7 @@ import { MypostComponent } from './components/view/mypost/mypost.component';
     PostComponent,
     AddPostComponent,
     MypostComponent,
+ 
     
   ],
   entryComponents: [AddPostComponent],
@@ -51,19 +66,13 @@ import { MypostComponent } from './components/view/mypost/mypost.component';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    //AngularFireAuthModule,
     MatButtonModule,
-    AngularFireModule,
-    AngularFireModule.initializeApp({
-      apiKey: "AIzaSyCttZmJh_ArFeLbhU4RQNzxFl_93HHYn6o",
-      authDomain: "cloneinstagram-ac725.firebaseapp.com",
-      projectId: "cloneinstagram-ac725",
-      storageBucket: "cloneinstagram-ac725.appspot.com",
-      messagingSenderId: "884564723659",
-      appId: "1:884564723659:web:2e86deeac02755c3a9184e"
-    })  
+    MatProgressSpinnerModule,
+    AngularFireModule.initializeApp(config),
+    AngularFirestoreModule,
+    AngularFireAuthModule,  
   ],
-  providers: [FirebaseService,
+  providers: [AuthGuard,
     { provide: MAT_DIALOG_DATA, useValue: {} },
     { provide: MatDialogRef, useValue: {} }
   ],

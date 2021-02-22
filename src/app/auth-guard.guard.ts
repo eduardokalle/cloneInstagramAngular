@@ -11,11 +11,12 @@ export class AuthGuard implements CanActivate {
   constructor(public router: Router) {}
   
   canActivate(): boolean {
-    /*
-    if (this.in.isSignedIn == true) {
-      this.router.navigate(["/post"])
+    
+    const ls = localStorage.getItem('isLoggedIn') 
+    if (ls !== 'true') {
+      this.router.navigate(["login"])
       return false
-    }*/
+    }
     return true
   }
 

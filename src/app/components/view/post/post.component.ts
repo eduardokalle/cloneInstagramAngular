@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PostService } from 'src/app/service/post.service' 
 import { CommentService } from 'src/app/service/comment.service' 
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-post',
@@ -14,6 +15,7 @@ export class PostComponent implements OnInit {
   commentsall = []
   images 
   panelOpenState = false;
+  isLoading 
 
   constructor(
     public postService: PostService,
@@ -21,9 +23,15 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getAllPost()
-    this.getIdCommentsPost()
+    this.isLoading = true
     this.getAllPostimages()
+    setTimeout(()=>{
+      this.getAllPost(),
+      this.getIdCommentsPost()
+      this.isLoading = false
+    }, 1000);
+
+    
   }
 
   
@@ -40,6 +48,8 @@ export class PostComponent implements OnInit {
          console.log(this.postall[0].user_id);
          this.postall[0].user_id
          console.log(this.postall[0].user_id);
+         const user_id = this.postall[0].user_id
+         localStorage.setItem('user_id', user_id)
          
          for (let i = 0; i<this.postall.length; i+= 1) {
            console.log(this.images[i]);
@@ -49,9 +59,9 @@ export class PostComponent implements OnInit {
       }
     )
   }
-
-  getAllPostimages(){
-    this.postService.postImages('').subscribe(
+  
+   async getAllPostimages(){
+    await this.postService.postImages('').subscribe(
       p => {
         this.images = p.message
       },
