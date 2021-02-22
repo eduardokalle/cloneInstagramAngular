@@ -18,7 +18,6 @@ export class CommentService {
   }
 }
 
-
 function builGETTUrl(type: string): string {
   let finalUrl = GlobalVariable.BASE_API_URL
   finalUrl += type

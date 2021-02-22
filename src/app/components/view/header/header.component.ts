@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog"
 import { AddPostComponent } from '../../view/add-post/add-post.component'
-import { LoginComponent } from '../../login/login.component'
 import { FirebaseService } from '../../../service/firebase.service';
 import { Router } from '@angular/router';
 
@@ -13,9 +12,8 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  
-  id = localStorage.getItem('user_id')
-
+  id
+ 
   @Output() isLogout = new EventEmitter<void>()
 
   constructor(
@@ -26,7 +24,14 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.getId()
+    }, 3000);
   }
+
+  getId(){
+    this.id = localStorage.getItem('user_id')
+   }
 
   createPost() {
     const dialogRef = this.dialog.open( AddPostComponent, {
@@ -38,6 +43,7 @@ export class HeaderComponent implements OnInit {
   onlogout() {
     this.firebaseService.logout()
     localStorage.removeItem('user');
+    localStorage.removeItem('user_id');
     localStorage.removeItem('isLoggedIn');
     this.router.navigate(["/login"]);
 

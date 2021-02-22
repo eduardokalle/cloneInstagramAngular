@@ -30,8 +30,8 @@ export class MypostComponent implements OnInit {
       },
       e => { console.log(e) },
       () => {
-        console.log('mypost url == ', this.postService.myPost);
-         console.log('mypost == ', this.mypost);
+        //console.log('mypost url == ', this.postService.myPost);
+        //console.log('mypost == ', this.mypost);
          
       }
     )
@@ -44,7 +44,7 @@ export class MypostComponent implements OnInit {
       },
       e => { console.log(e) },
       () => {
-         console.log(' comments of my post == ', this.mypostcomments);
+         //console.log(' comments of my post == ', this.mypostcomments);
          
       }
     )

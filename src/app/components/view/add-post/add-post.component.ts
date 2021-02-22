@@ -31,7 +31,7 @@ export class AddPostComponent implements OnInit {
       },
       e => { console.log(e) },
       () => {
-         console.log('post send == ', this.message );
+         //console.log('post send == ', this.message );
          this.dialogRef.close()
          
       }
