@@ -31,6 +31,8 @@ Environments => contiene las variables de entorno donde encontramos el Access to
 •	Clonar el repositorio git clone 
 •	npm install  == para instalar node_modules y dependencias 
 •	ng serve  o  npm start
+run server http://localhost:4200/
+login http://localhost:4200/login
 
 
 
